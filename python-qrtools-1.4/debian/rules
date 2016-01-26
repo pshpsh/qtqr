@@ -1,0 +1,28 @@
+#!/usr/bin/make -f
+# -*- mode: makefile; coding: utf-8 -*-
+
+build:
+
+clean:
+
+binary-indep: build
+	rm -rf debian/tmp
+	mkdir -p debian/tmp/usr/lib/python2.6/dist-packages
+	mkdir -p debian/tmp/usr/lib/python2.7/dist-packages
+	mkdir -p debian/tmp/usr/share/python-qrtools
+	mkdir -p debian/tmp/usr/share/doc/python-qrtools/
+	mkdir -p debian/tmp/DEBIAN
+	cp qrtools.py debian/tmp/usr/lib/python2.6/dist-packages/
+	cp qrtools.py debian/tmp/usr/lib/python2.7/dist-packages/
+	cp debian/copyright debian/tmp/usr/share/doc/python-qrtools/copyright
+	cp debian/changelog debian/tmp/usr/share/doc/python-qrtools/changelog
+	gzip -9 debian/tmp/usr/share/doc/python-qrtools/changelog
+	chown -R root:root debian/tmp
+	dpkg-gencontrol
+	dpkg --build debian/tmp ..
+
+binary-arch:
+
+binary: binary-indep binary-arch
+
+.PHONY: binary binary-arch binary-indep clean

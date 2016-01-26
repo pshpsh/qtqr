@@ -1,0 +1,15 @@
+Source: qtqr
+Section: graphics
+Priority: optional
+Maintainer: David Green <david4dev@gmail.com>
+Build-Depends: python
+Standards-Version: 3.9.1
+Homepage: https://launchpad.net/qr-tools
+
+Package: qtqr
+Architecture: all
+Depends: python, python-qrtools, python-qt4
+Description: A Graphical interface QR Code generator and decoder.
+ A Qt based software that let's you generate QR Codes easily,  
+ scan an image file for QR Codes and decode them 
+ or use your webcam to scan a printed one.

@@ -1,0 +1,11 @@
+python-qrtools (1.4-0~22~ubuntu14.04.1) trusty; urgency=low
+
+  * Auto build.
+
+ -- Launchpad Package Builder <noreply@launchpad.net>  Mon, 22 Jun 2015 00:02:54 +0000
+
+python-qrtools (1.4) natty; urgency=low
+
+  * Upstream 1.4
+
+ -- Ramiro Algozino <algozino@gmail.com>  Tue, 21 Jan 2014 22:43:54 -0300

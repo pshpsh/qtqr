@@ -1,0 +1,13 @@
+Source: python-qrtools
+Section: python
+Priority: optional
+Maintainer: David Green <david4dev@gmail.com>
+Build-Depends: python
+Standards-Version: 3.9.1
+Homepage: https://launchpad.net/qr-tools
+
+Package: python-qrtools
+Architecture: all
+Depends: python, python-imaging, python-zbar, qrencode
+Description: A high level library for reading and generating QR codes.
+ It uses qrencode to create the QR codes and zbar to read them.

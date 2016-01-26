@@ -1,0 +1,36 @@
+#!/usr/bin/make -f
+# -*- mode: makefile; coding: utf-8 -*-
+
+build:
+
+clean:
+
+binary-indep: build
+	rm -rf debian/tmp
+	mkdir -p debian/tmp/usr/share/qtqr
+	mkdir -p debian/tmp/usr/share/doc/qtqr/
+	mkdir -p debian/tmp/usr/bin/
+	mkdir -p debian/tmp/usr/share/applications
+	mkdir -p debian/tmp/usr/share/pixmaps
+	mkdir -p debian/tmp/usr/share/man/man1/
+	mkdir -p debian/tmp/usr/share/qt4/translations/
+	mkdir -p debian/tmp/DEBIAN
+	cp qtqr.py debian/tmp/usr/bin/qtqr
+	cp icon.png debian/tmp/usr/share/pixmaps/qtqr.png
+	cp *.qm debian/tmp/usr/share/qt4/translations/
+	cp debian/qtqr.desktop debian/tmp/usr/share/applications/qtqr.desktop
+	cp debian/copyright debian/tmp/usr/share/doc/qtqr/copyright
+	cp debian/changelog debian/tmp/usr/share/doc/qtqr/changelog
+	cp debian/qtqr.1 debian/tmp/usr/share/man/man1/
+	gzip -9 debian/tmp/usr/share/doc/qtqr/changelog
+	gzip -9 debian/tmp/usr/share/man/man1/qtqr.1
+	chown -R root:root debian/tmp
+	chmod +x debian/tmp/usr/bin/*
+	dpkg-gencontrol
+	dpkg --build debian/tmp ..
+
+binary-arch:
+
+binary: binary-indep binary-arch
+
+.PHONY: binary binary-arch binary-indep clean
