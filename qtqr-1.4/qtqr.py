@@ -504,17 +504,17 @@ class MainWindow(QtGui.QMainWindow):
             self,
             self.trUtf8('Save QRCode'), 
             filter=filterStr
-            )
+            )[0]
         if fn:
-            if not fn.toLower().endsWith(u".png") \
-            and not fn.toLower().endsWith(u".eps") \
-            and not fn.toLower().endsWith(u".svg") \
-            and not fn.toLower().endsWith(u".ansi") \
-            and not fn.toLower().endsWith(u".ansi256") \
-            and not fn.toLower().endsWith(u".ascii") \
-            and not fn.toLower().endsWith(u".asciii") \
-            and not fn.toLower().endsWith(u".utf8") \
-            and not fn.toLower().endsWith(u".ansiutf8"):
+            if not fn.lower().endswith(u".png") \
+            and not fn.lower().endswith(u".eps") \
+            and not fn.lower().endswith(u".svg") \
+            and not fn.lower().endswith(u".ansi") \
+            and not fn.lower().endswith(u".ansi256") \
+            and not fn.lower().endswith(u".ascii") \
+            and not fn.lower().endswith(u".asciii") \
+            and not fn.lower().endswith(u".utf8") \
+            and not fn.lower().endswith(u".ansiutf8"):
                 fn += u".png"
             self.qrencode(unicode(fn))
             if NOTIFY:
