@@ -5,4 +5,7 @@ Taken from this: https://launchpad.net/~qr-tools-developers/+archive/ubuntu/qr-t
 
 Build on debian/ubuntu:
 
-cd dir; dpkg-buildpackage -rfakeroot
+```bash
+cd dir
+dpkg-buildpackage -rfakeroot
+```
